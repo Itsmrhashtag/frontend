@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function submitLoginForm(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var rememberMe = document.getElementById('remember_me').checked;
+
+            var formData = {
+                email: email,
+                password: password
+            };
+
+            fetch('http://localhost:8081/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+                window.location.href = 'fbintigration.html';
+                alert('Login Successfully.');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+        function deleteToken() {
+        localStorage.removeItem('accessToken');
+    }
+        window.onload = deleteToken;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div>
+                <h2>Login to your Account</h2>
+            </div>
+            <form>
+                <input type="hidden" name="remember" value="true">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" autocomplete="username" required placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="********">
+                </div>
+                <div class="form-group-checkbox">
+                    <input id="remember_me" name="remember_me" type="checkbox">Remember me
+                </div>
+                
+                <div class="form-group">
+                    <button onclick="submitLoginForm(event)" type="button">Log In</button>
+                </div>
+            </form>
+            <div class="text-center">
+                <p>New to MyApp? <a href="register.html">Sign Up</a></p>
+            </div>
+        </div>
+    </div> 
+</body>
+</html>

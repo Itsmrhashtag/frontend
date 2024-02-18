@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+body {
+    background-color: #1E4D91;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 28rem;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.container-fb {
+    max-width: 28rem;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    text-align: center;
+}
+
+h5{
+    margin: 2%;
+}
+
+form {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+button {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #000000;
+    outline: none;
+}
+.form-group-checkbox{
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    text-align: start;
+}
+
+
+button {
+    background-color: #1F4C8F;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1F4C8F;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+span{
+    font-weight: bold;
+}

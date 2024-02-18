@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Integration</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function redirectToURL() {
+            
+            window.location.href = "http://localhost:8081/oauth2/authorize/facebook?redirect_uri=http://127.0.0.1:5500/ddpage.html"; 
+        }
+    </script>
+</head>
+<body>
+    <div class="container-fb">
+        <div class="content">
+            <div>
+                <h2>Facebook Page Integration</h2>
+            </div>
+            <form>
+                <input type="hidden" name="remember" value="true">
+                <div class="form-group">
+                    <button onclick="redirectToURL()" type="button">Connect Page</button>
+                </div>
+            </form>
+            
+        </div>
+    </div> 
+</body>
+</html>

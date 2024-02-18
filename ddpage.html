@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete/Disconnect Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container-fb">
+        <div class="content">
+            <div>
+                <h5>Facebook Page Integration</h5>
+
+                <p>Integrated Page : <span>Amazon Bussiness</span></p>
+            </div>
+            <form>
+                <input type="hidden" name="remember" value="true">
+                <div class="form-group">
+                    <button onclick="deleteIntegration()" type="button" style="background-color: #E25241; color: white;">Delete Integration</button>
+                </div>
+                <div class="form-group">
+                    <button id="replyButton" onclick="checkLocalStorage()" type="button">Reply To Messages</button>
+                </div>
+            </form>
+            
+        </div>
+    </div> 
+    <script>
+
+    function checkLocalStorage() {
+        var value = localStorage.getItem('accessToken'); 
+        if (value) {
+            window.location.href = "main.html";
+        } else {
+            alert('Integration deleted, So You cannot go to Conversation Screen');
+        }
+    }
+    function deleteIntegration() {
+        localStorage.removeItem('accessToken');
+        alert('Integration deleted successfully.');
+    }
+        function storeTokenFromURL() {
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            const token = urlParams.get('token');
+            
+            if (token) {
+                alert('Facebook Intigration Successfull!!! ');
+                localStorage.setItem('accessToken', token);
+                // console.log("token "+token);
+            }
+        }
+        
+        window.onload = storeTokenFromURL;
+    </script>
+</body>
+</html>
